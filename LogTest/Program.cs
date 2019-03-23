@@ -19,6 +19,10 @@ namespace LogTest
 
         public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
             WebHost.CreateDefaultBuilder(args)
+                   .ConfigureLogging(c =>
+                {
+                    c.AddAzureWebAppDiagnostics();
+                })
                 .UseStartup<Startup>();
     }
 }
